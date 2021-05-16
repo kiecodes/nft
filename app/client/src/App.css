@@ -1,0 +1,179 @@
+.dark {
+  background-color: #0d1b2a;
+  color: beige;
+}
+
+.medium {
+  background-color: #acb7c3;
+  color: 1b263b;
+}
+
+.headline {
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 1.4em;
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+#explanation {
+  font-size: 1.4em;
+}
+
+#rarity {
+  font-size: 1.4em;
+}
+
+.rarity-item {
+  width: 10em;
+}
+
+.calendar {
+  width: 100%;
+  max-width: 25em;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.claimed {
+  background-color: #86bbd8 !important;
+  color: #0d1b2a;
+}
+
+.ownerAdress {
+  font-weight: 800;
+  font-family: 'IBM Plex Mono', monospace;
+  color: #415a77;
+}
+
+.ownerAdress a {
+  color: #415a77;
+}
+
+.ownerAdress a:hover {
+  color: #415a77;
+}
+
+.noteBox {
+  background-color: #fffaff;
+  border-radius: 0.5em;
+}
+
+.tokenTitle {
+  color: #0d1b2a;
+  font-size: 1.2em;
+  font-family: 'IBM Plex Mono', monospace;
+  min-width: 14.2em;
+  max-width: 19em;
+  display: inline-block;
+}
+
+#claimForm {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+#claimForm input {
+  width: 80%;
+}
+
+#claimForm label {
+  font-weight: 700;
+}
+
+#claimForm button {
+  width: 100%;
+  background-color: #86bbd8;
+  color: beige;
+  font-size: 1.2em;
+  font-weight: 700;
+  border: 4px solid #415a77;
+}
+
+#claimForm button:disabled {
+  background-color: #acb7c3;
+  color: #415a77;
+  border-color: #415a77;
+}
+
+/* Calendar */
+
+.react-calendar {
+  background: #e0e1dd;
+  border: 0px;
+  line-height: 1.125em;
+}
+
+.react-calendar__navigation {
+  height: 44px;
+  margin-bottom: 1em;
+}
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+}
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #778da9;
+}
+.react-calendar__navigation button[disabled] {
+  background-color: #e0e1dd;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #ff5154;
+}
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #757575;
+}
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+}
+.react-calendar__tile {
+  max-width: 100%;
+  text-align: center;
+  padding: 0.75em 0.5em;
+  background: none;
+}
+.react-calendar__tile:disabled {
+  background-color: #757780;
+  color: #919299;
+}
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #415a77;
+}
+.react-calendar__tile--now {
+  background: #e0e1dd;
+}
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: #86bbd8;
+}
+.react-calendar__tile--hasActive {
+  background: #86bbd8;
+}
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: #86bbd8;
+}
+.react-calendar__tile--active {
+  background: #415a77 !important;
+  color: #e0e1dd;
+}
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #415a77 !important;
+}
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #e6e6e6;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  color: #415a77;
+}
