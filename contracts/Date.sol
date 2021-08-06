@@ -16,11 +16,13 @@ contract Date is Ownable, ERC721 {
 
     mapping(uint256 => Metadata) id_to_date;
 
-    constructor() public ERC721("Date", "DATE") {
-        _setBaseURI("https://date.kie.codes/token/");
+    string private _currentBaseURI;
+
+    constructor() ERC721("Date", "DATE") {
+        setBaseURI("https://date.kie.codes/token/");
 
         mint(1, 1, 1, 4, "ORIGIN");
-        (uint16 now_year, uint8 now_month, uint8 now_day) = timestampToDate(now);
+        (uint16 now_year, uint8 now_month, uint8 now_day) = timestampToDate(block.timestamp);
         mint(now_year, now_month, now_day, 4, "Date Token Start");
         mint(2015, 7, 30, 6, "ETH GENESIS");
         mint(1452, 4, 15, 5, "Art is never finished, only abandoned.");
@@ -32,7 +34,11 @@ contract Date is Ownable, ERC721 {
     }
 
     function setBaseURI(string memory baseURI) public onlyOwner {
-        _setBaseURI(baseURI);
+        _currentBaseURI = baseURI;
+    }
+
+    function _baseURI() internal view virtual override returns (string memory) {
+        return _currentBaseURI;
     }
 
     function mint(uint16 year, uint8 month, uint8 day, uint8 color, string memory title) internal {
@@ -43,9 +49,9 @@ contract Date is Ownable, ERC721 {
     }
 
     function claim(uint16 year, uint8 month, uint8 day, string calldata title) external payable {
-        require(msg.value == 10 finney, "claiming a date costs 10 finney");
+        require(msg.value == 0.01 ether, "claiming a date costs 10 finney");
 
-        (uint16 now_year, uint8 now_month, uint8 now_day) = timestampToDate(now);
+        (uint16 now_year, uint8 now_month, uint8 now_day) = timestampToDate(block.timestamp);
         if ((year > now_year) || 
             (year == now_year && month > now_month) || 
             (year == now_year && month == now_month && day > now_day)) {
@@ -73,7 +79,7 @@ contract Date is Ownable, ERC721 {
         }
 
         mint(year, month, day, color, title);
-        payable(owner()).transfer(10 finney);
+        payable(owner()).transfer(0.01 ether);
     }
 
     function ownerOf(uint16 year, uint8 month, uint8 day) public view returns(address) {
@@ -141,16 +147,16 @@ contract Date is Ownable, ERC721 {
     }
 
     function timestampToDate(uint timestamp) public pure returns (uint16 year, uint8 month, uint8 day) {
-        int z = int(timestamp / 86400 + 719468);
-        int era = (z >= 0 ? z : z - 146096) / 146097;
-        uint doe = uint(z - era * 146097);
+        uint z = timestamp / 86400 + 719468;
+        uint era = (z >= 0 ? z : z - 146096) / 146097;
+        uint doe = z - era * 146097;
         uint yoe = (doe - doe/1460 + doe/36524 - doe/146096) / 365;
         uint doy = doe - (365*yoe + yoe/4 - yoe/100);
         uint mp = (5*doy + 2)/153;
 
         day = uint8(doy - (153*mp+2)/5 + 1);
         month = mp < 10 ? uint8(mp + 3) : uint8(mp - 9);
-        year = uint16(int(yoe) + era * 400 + (month <= 2 ? 1 : 0));
+        year = uint16(yoe + era * 400 + (month <= 2 ? 1 : 0));
     }
 
     function pseudoRNG(uint16 year, uint8 month, uint8 day, string memory title) internal view returns (uint256) {
