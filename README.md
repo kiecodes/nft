@@ -19,3 +19,7 @@ This repository includes all the code written during the 3-day challange. More e
 This melody generation script is far from perfect and any contribution is welcome. Please feel free to fork this repository. Any pull request or comment is welcome!
 
 Have a great day Coders!
+
+## Changelog
+
+06-08-2021: Upgraded the codebase to work with solc version 0.8.0. Please check commit https://github.com/kiecodes/nft/commit/988f64bf5d2c127bbb7e76bdf4f548337673dffd for details.
