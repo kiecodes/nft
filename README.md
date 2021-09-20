@@ -22,4 +22,5 @@ Have a great day Coders!
 
 ## Changelog
 
+20-09-2021: Fix date string rendering on SVG.
 06-08-2021: Upgraded the codebase to work with solc version 0.8.0. Please check commit https://github.com/kiecodes/nft/commit/988f64bf5d2c127bbb7e76bdf4f548337673dffd for details.

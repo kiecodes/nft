@@ -21,11 +21,9 @@ function isNumeric(str) {
            !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
   }
 
-function toDate(year, month, day) {
+  function toDate(year, month, day) {
     let date = new Date()
-    date.setUTCDate(day)
-    date.setUTCMonth(month-1)
-    date.setUTCFullYear(year)
+    date.setUTCFullYear(year, month-1, day)
     return date
 }
 
